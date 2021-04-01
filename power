@@ -1,7 +1,6 @@
 #!/data/data/com.termux/files/usr/bin/env python
 
 import argparse
-#import chalk
 
 GREEN, END = '\033[32;2m', '\033[0m'
 
@@ -16,13 +15,10 @@ args = parser.parse_args()
 answer = args.x**args.y
 
 if args.quiet:
-    #chalk.green(str(answer))
     print(GREEN + '[=] ' +  str(answer) + END)
 elif args.verbose:
-    #chalk.green("{} to the power of {} equals {}".format(str(args.x), str(args.y), str(answer)))  #gives an odd error. bugfix: added {} for args.x..
     print(GREEN + '{} to the power of {} equals {}'.format(str(args.x), str(args.y), str(answer)) + END)
 else:
-    #chalk.green("{}^{} == {}".format(str(args.x),str( args.y), str(answer)))
     print(GREEN + '{}^{} == {}'.format(str(args.x), str(args.y), str(answer)) + END)
 
 ###########################################
@@ -31,6 +27,6 @@ else:
 #                                         #
 #           Written on 4-20-17.           #
 #                                         #
-#           Fell free to change.          #
+#           Feel free to change.          #
 #                                         #
 ###########################################
