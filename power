@@ -2,24 +2,39 @@
 
 import argparse
 
-GREEN, END = '\033[32;2m', '\033[0m'
+GREEN, END = "\033[32;2m", "\033[0m"
 
-parser = argparse.ArgumentParser(description="Calculate X to the power of Y.", prog="POWER")
+parser = argparse.ArgumentParser(
+    description="Calculate X to the power of Y.", prog="POWER"
+)
 group = parser.add_mutually_exclusive_group()
-parser.add_argument("-V", "--version", action="version", version="%(prog)s v1.5.5") #bugfix: in progress | fixed
-group.add_argument("-v", "--verbose", action="store_true", help="increase output verbosity")
-group.add_argument("-q", "--quiet", action="store_true", help="decrease's output verbosity")
+parser.add_argument(
+    "-V", "--version", action="version", version="%(prog)s v1.5.5"
+)  # bugfix: in progress | fixed
+group.add_argument(
+    "-v", "--verbose", action="store_true", help="increase output verbosity"
+)
+group.add_argument(
+    "-q", "--quiet", action="store_true", help="decrease's output verbosity"
+)
 parser.add_argument("x", type=int, help="the base")
 parser.add_argument("y", type=int, help="the exponent")
-args = parser.parse_args() 
+args = parser.parse_args()
 answer = args.x**args.y
 
 if args.quiet:
-    print(GREEN + '[=] ' +  str(answer) + END)
+    print(GREEN + "[=] " + str(answer) + END)
 elif args.verbose:
-    print(GREEN + '{} to the power of {} equals {}'.format(str(args.x), str(args.y), str(answer)) + END)
+    print(
+        GREEN
+        + "{} to the power of {} equals {}".format(
+            str(args.x), str(args.y), str(answer)
+        )
+        + END
+    )
 else:
-    print(GREEN + '{}^{} == {}'.format(str(args.x), str(args.y), str(answer)) + END)
+    print(GREEN + "{}^{} == {}".format(str(args.x), str(args.y),
+                                       str(answer)) + END)
 
 ###########################################
 #                                         #
